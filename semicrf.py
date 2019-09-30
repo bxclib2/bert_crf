@@ -348,7 +348,7 @@ class semiCRF(nn.Module):
         if batch_feat.dim() != 4:
             raise ValueError("batch_feat should be a 4 dimension tensor, got %s" % batch_feat.dim())
         if batch_feat.size(3) != self.tags_num:
-            raise ValueError("Expected last dimension of batch_feat equals num_tags, but got %s and %s respectively." % (self.batch_feat.size(3), self.tags_num))
+            raise ValueError("Expected last dimension of batch_feat equals num_tags, but got %s and %s respectively." % (batch_feat.size(3), self.tags_num))
         if batch_tag is not None:
             if batch_feat.shape[:2] != batch_tag.shape:
                 raise ValueError("The input feature and the tagged label dimension do not match, got %s and %s respectively." % (str(tuple(batch_feat.shape[:2])), str(tuple(batch_tag.shape))))
